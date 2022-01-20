@@ -1,5 +1,7 @@
-# Changement dans le main  
+# Avant de commencer  
 Téléchargez le front-end (website_sf)  
+
+# Changement dans le main  
 Dans les fonctions avant le main, redirigez selon votre répertoire dans le `.body(include_str!(...))`  
   
 # Run  
