@@ -44,6 +44,30 @@ async fn signup() -> Result<HttpResponse, Error> {
     )
 }
 
+async fn css_home() -> Result<HttpResponse, Error> {
+    Ok(
+        HttpResponse::build(StatusCode::OK)
+            .content_type("text/html; charset=utf-8")
+            .body(include_str!("/home/kali/Desktop/Shield_website/Website_sf/src/css/home.css"))
+    )
+}
+
+async fn css_login() -> Result<HttpResponse, Error> {
+    Ok(
+        HttpResponse::build(StatusCode::OK)
+            .content_type("text/html; charset=utf-8")
+            .body(include_str!("/home/kali/Desktop/Shield_website/Website_sf/src/css/login.css"))
+    )
+}
+
+async fn css_signup() -> Result<HttpResponse, Error> {
+    Ok(
+        HttpResponse::build(StatusCode::OK)
+            .content_type("text/html; charset=utf-8")
+            .body(include_str!("/home/kali/Desktop/Shield_website/Website_sf/src/css/signup.css"))
+    )
+}
+
 
 #[actix_rt::main]
 #[instrument]
@@ -72,6 +96,9 @@ async fn main() -> Result<()> {
             .route("/home.html", web::get().to(home))
             .route("/login.html", web::get().to(login))
             .route("/signup.html", web::get().to(signup))
+            .route("/home.css", web::get().to(css_home))
+            .route("/login.css", web::get().to(css_login))
+            .route("/signup.css", web::get().to(css_signup))
     })
         .bind(format!("{}:{}", config.host, config.port))?
         .run()
