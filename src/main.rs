@@ -24,7 +24,7 @@ async fn home() -> Result<HttpResponse, Error> {
     Ok(
         HttpResponse::build(StatusCode::OK)
             .content_type("text/html; charset=utf-8")
-            .body(include_str!("/home/caluri0/Documents/website_sf/src/html/home.html"))
+            .body(include_str!("/home/kali/Desktop/Shield_website/Website_sf/src/html/home.html"))
     )
 }
 
@@ -32,7 +32,7 @@ async fn login() -> Result<HttpResponse, Error> {
     Ok(
         HttpResponse::build(StatusCode::OK)
             .content_type("text/html; charset=utf-8")
-            .body(include_str!("/home/caluri0/Documents/website_sf/src/html/login.html"))
+            .body(include_str!("/home/kali/Desktop/Shield_website/Website_sf/src/html/login.html"))
     )
 }
 
@@ -40,7 +40,7 @@ async fn signup() -> Result<HttpResponse, Error> {
     Ok(
         HttpResponse::build(StatusCode::OK)
             .content_type("text/html; charset=utf-8")
-            .body(include_str!("/home/caluri0/Documents/website_sf/src/html/signup.html"))
+            .body(include_str!("/home/kali/Desktop/Shield_website/Website_sf/src/html/signup.html"))
     )
 }
 
@@ -62,7 +62,7 @@ async fn main() -> Result<()> {
         let generated = generate();
         App::new()
             .service(actix_web_static_files::ResourceFiles::new(
-                "/home/caluri0/Documents/website_sf/src/css", generated
+                "/home/kali/Desktop/Shield_website/Website_sf/src/css", generated
             ))
             .wrap(Logger::default())
             .data(pool.clone())
